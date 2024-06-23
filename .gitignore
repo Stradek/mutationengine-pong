@@ -1,4 +1,5 @@
-# ---> C
+########################
+# --> C
 # Prerequisites
 *.d
 
@@ -52,3 +53,11 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+########################
+# --> CMake
+CMakeFiles/
+build/
+
+########################
+# --> Project 
+bin/

@@ -57,7 +57,9 @@ dkms.conf
 # --> CMake
 CMakeFiles/
 build/
+compile_commands.json
 
 ########################
 # --> Project 
+.cache/
 bin/

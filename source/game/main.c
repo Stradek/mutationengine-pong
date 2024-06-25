@@ -10,7 +10,7 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    mutation_engine_run();
-    mutation_engine_quit();
+    mutation_engine_run_loop();
+    mutation_engine_close();
 }
 

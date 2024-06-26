@@ -1,7 +1,6 @@
 # Tasks
 
 ## TODO
-- Force 60 fps in game loop.
 - Figure out how to structure entity component system:
     - I will have two paddles.I will have a ball. 
     - I need points going up when player scores.
@@ -25,6 +24,8 @@
     - game over state.
 
 ## IN PROGRESS
+- Force 60 fps in game loop.
+    - check every second what amount of fps we have.
 
 
 ## DONE

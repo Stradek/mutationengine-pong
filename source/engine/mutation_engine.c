@@ -4,8 +4,8 @@
 
 #include <stdbool.h>
 #include <SDL2/SDL.h>
+#include <time.h>
 
-static bool running = true;
 
 int mutation_engine_init() 
 {
@@ -17,9 +17,17 @@ int mutation_engine_init()
     return 0;
 }
 
-int mutation_engine_run_loop() {
+int mutation_engine_run_loop() 
+{
+    const unsigned int target_fps = 60;
+    const float target_frame_time = 1.0 / (float) target_fps;
+
+    bool running = true;
+
     while(running)
     {
+        const clock_t frame_start_time = clock();
+
         SDL_Event event;
         while(SDL_PollEvent(&event))
         {
@@ -36,8 +44,19 @@ int mutation_engine_run_loop() {
             }
         }
 
-    render_frame();
+        render_frame();
 
+        const clock_t frame_end_time = clock();
+        const float frame_elapsed_time = (float) (frame_end_time - frame_start_time) / CLOCKS_PER_SEC;
+        const float time_until_target_frame = target_frame_time - frame_elapsed_time;
+
+        const unsigned int SECONDS_TO_NANOSECONDS = 1000000000;
+        const struct timespec sleep_time =
+        {
+            0, 
+            time_until_target_frame * SECONDS_TO_NANOSECONDS
+        }; 
+        nanosleep(&sleep_time, NULL);
     }
     return 0;
 }

@@ -1,6 +1,7 @@
 # Tasks
 
 ## TODO
+- Move ideas about the engine from PalChat on my phone to this file
 - Figure out how to structure entity component system:
     - I will have two paddles.I will have a ball. 
     - I need points going up when player scores.

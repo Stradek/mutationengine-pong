@@ -1,8 +1,13 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-struct Entity;  
+typedef struct Entity
+{
+    unsigned int id;
+    unsigned int componentMask;
+} Entity;
 
-addEntity(Entity *entity);
+
+void addEntity(struct Entity *entity);
 
 #endif // ENTITY_H

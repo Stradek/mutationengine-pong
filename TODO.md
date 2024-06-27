@@ -25,9 +25,8 @@
 
 ## IN PROGRESS
 - Force 60 fps in game loop.
-    - check every second what amount of fps we have.
-
+    - debug why we have less than 60 fps. (must be some bug in time calculation)
 
 ## DONE
-
+- check every second what amount of fps we have.
 

@@ -3,23 +3,42 @@
 # Software distributed under the permissive MIT License.
 #
 
-cmake_minimum_required(VERSION 3.9 FATAL_ERROR)
-cmake_policy(VERSION 3.9)
+cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
+cmake_policy(VERSION 3.10)
 
 set(CMAKE_C_COMPILER gcc)
 set(CMAKE_C_STANDARD 17)
 
-project(MutationEngine-Pong)
 
+# Set the default build type to Debug if not specified
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type" FORCE)
+endif()
+
+# Set the compile commands export for clang lang server 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-set(LIBRARIES_PATH ${CMAKE_SOURCE_DIR}/lib)
-set(EXTERNAL_INCLUDES_PATH ${CMAKE_SOURCE_DIR}/external)
-
+# Set the output directories
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
+# Specify compiler flags for different build types
+set(CMAKE_C_FLAGS_DEBUG "-g")
+set(CMAKE_C_FLAGS_RELEASE "-O3")
+set(CMAKE_C_FLAGS_RELWITHDEBINFO "-O2 -g")
+
+# Enable all warnings
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -pedantic")
+
+# Set the output directories
+set(LIBRARIES_PATH ${CMAKE_SOURCE_DIR}/lib)
+set(EXTERNAL_INCLUDES_PATH ${CMAKE_SOURCE_DIR}/external)
+
+############################################
+project(MutationEngine-Pong)
+
+# MutationEngine-Pong
 set(SOURCES 
     ${CMAKE_SOURCE_DIR}/source/game/main.c
     ${CMAKE_SOURCE_DIR}/source/engine/mutation_engine.c

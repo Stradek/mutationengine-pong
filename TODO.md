@@ -1,13 +1,11 @@
 # Tasks
 
 ## TODO
-- create "types.h" header
-    - add includes for stdint.h, stdbool.h, stddef.h
-    - add custom aliases like for uint, uint8, uint64, vec2 etc.
 
 ## IN PROGRESS
 
 ## DONE
+- Create "types.h" header
 - Force 60 fps in game loop.
 - Figure out how to structure entity component system.
 - Move ideas about the engine from PalChat on my phone to this file

@@ -6,10 +6,9 @@
     - add custom aliases like for uint, uint8, uint64, vec2 etc.
 
 ## IN PROGRESS
-- Force 60 fps in game loop.
-    - debug why we have variable fps 
 
 ## DONE
+- Force 60 fps in game loop.
 - Figure out how to structure entity component system.
 - Move ideas about the engine from PalChat on my phone to this file
 - Figure out design of rendering system:

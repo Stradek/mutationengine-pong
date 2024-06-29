@@ -1,9 +1,13 @@
 # Tasks
 
 ## TODO
+- create "types.h" header
+    - add includes for stdint.h, stdbool.h, stddef.h
+    - add custom aliases like for uint, uint8, uint64, vec2 etc.
+
 ## IN PROGRESS
 - Force 60 fps in game loop.
-    - debug why we have less than 60 fps. (must be some bug in time calculation)
+    - debug why we have variable fps 
 
 ## DONE
 - Figure out how to structure entity component system.

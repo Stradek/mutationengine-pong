@@ -14,14 +14,14 @@ if not exist %BUILD_DIR% (
 cmake -G "MinGW Makefiles" -S . -B %BUILD_DIR%
 if %errorlevel% neq 0 (
     echo Failed to configure the project.
-    exit /b %errorlevel%
+    call :close
 )
 
 rem Build the project
 cmake --build %BUILD_DIR%
 if %errorlevel% neq 0 (
     echo Failed to build the project.
-    exit /b %errorlevel%
+    call :close
 )
 
 rem Run the executable
@@ -29,7 +29,11 @@ if exist %PROJECT_EXECUTABLE_PATH% (
     %PROJECT_EXECUTABLE_PATH%
 ) else (
     echo Executable not found.
-    exit /b 1
+    call :close
 )
+
+:close
+pause
+goto:eof
 
 endlocal

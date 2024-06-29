@@ -1,5 +1,4 @@
-#ifndef RENDERER_H
-#define RENDERER_H
+#pragma once
 
 #include "common/types.h"
 
@@ -16,5 +15,3 @@ int init_renderer(void);
 int render_frame(void);
 int close_sdl(void);
 int close_renderer(void);
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef ENTITY_H
-#define ENTITY_H
+#pragma once
 
 #include "common/types.h"
 
@@ -11,5 +10,3 @@ typedef struct Entity
 
 
 void addEntity(struct Entity *entity);
-
-#endif // ENTITY_H

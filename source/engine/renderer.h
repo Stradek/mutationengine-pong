@@ -1,9 +1,11 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
+#include "common/types.h"
+
 typedef struct 
 {
-    unsigned int target_fps;
+    uint target_fps;
     float target_frame_time;
 } RendererOptionsInternal;
 

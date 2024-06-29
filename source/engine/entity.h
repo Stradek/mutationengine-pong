@@ -1,10 +1,12 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+#include "common/types.h"
+
 typedef struct Entity
 {
-    unsigned int id;
-    unsigned int componentMask;
+    uint32 id;
+    uint32 componentMask;
 } Entity;
 
 

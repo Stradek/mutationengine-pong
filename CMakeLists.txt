@@ -42,11 +42,8 @@ project(MutationEngine-Pong)
 set(SOURCES 
     ${CMAKE_SOURCE_DIR}/source/game/main.c
     ${CMAKE_SOURCE_DIR}/source/engine/mutation_engine.c
-    ${CMAKE_SOURCE_DIR}/source/engine/mutation_engine.h
     ${CMAKE_SOURCE_DIR}/source/engine/renderer.c
-    ${CMAKE_SOURCE_DIR}/source/engine/renderer.h
     ${CMAKE_SOURCE_DIR}/source/engine/entity.c
-    ${CMAKE_SOURCE_DIR}/source/engine/entity.h
 )
 
 add_executable(MutationEngine-Pong ${SOURCES})

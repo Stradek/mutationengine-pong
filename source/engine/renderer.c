@@ -3,7 +3,7 @@
 SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL;
 
-int init_sdl() 
+int init_sdl(void) 
 {
     if (SDL_Init(SDL_INIT_VIDEO) != 0) 
     {
@@ -30,7 +30,7 @@ int init_sdl()
     return 0;
 }
 
-int render_frame()
+int render_frame(void)
 {
     SDL_SetRenderDrawColor(renderer, 94, 25, 20, 255);
     SDL_RenderClear(renderer);
@@ -39,7 +39,7 @@ int render_frame()
     return 0;
 }
 
-int close_sdl() 
+int close_sdl(void) 
 {
     if (renderer != NULL)
     {

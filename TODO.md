@@ -3,6 +3,7 @@
 ## TODO
 
 ## IN PROGRESS
+- Establish coding conventions for the project and refactor project to align.
 
 ## DONE
 - Create "types.h" header

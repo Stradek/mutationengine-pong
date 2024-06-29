@@ -1,6 +1,7 @@
 #include "mutation_engine.h"
 
 #include "renderer.h"
+#include "utils.h"
 
 #include <math.h>
 #include <stdbool.h>
@@ -9,7 +10,7 @@
 
 int mutation_engine_init(void) 
 {
-    if (init_sdl() != 0)
+    if (init_renderer() != 0)
     {
         return 1;
     }
@@ -19,10 +20,6 @@ int mutation_engine_init(void)
 
 int mutation_engine_run_loop(void) 
 {
-    const size_t SECONDS_TO_MILLISECONDS = 1000;
-    const unsigned int target_fps = 60;
-    const float target_frame_time = (float) SECONDS_TO_MILLISECONDS / target_fps; // in seconds
-
     bool running = true;
     Uint8 frames_per_second_counter = 0;
     Uint64 last_performance_logging_time = SDL_GetPerformanceCounter();
@@ -63,7 +60,7 @@ int mutation_engine_run_loop(void)
             const Uint64 frame_time_end = SDL_GetPerformanceCounter();
 
             const float elapsed_frame_time = (frame_time_end - frame_time_start) / (float)SDL_GetPerformanceFrequency() * SECONDS_TO_MILLISECONDS;
-            const float wait_frame_time = fmax(0, target_frame_time - elapsed_frame_time);
+            const float wait_frame_time = fmax(0, renderer_options.target_frame_time - elapsed_frame_time);
             SDL_Delay(floor(wait_frame_time));
         }
     }
@@ -72,6 +69,10 @@ int mutation_engine_run_loop(void)
 
 int mutation_engine_close(void)
 {
-    close_sdl();
+    if(close_renderer() != 0)
+    {
+        return 1;
+    }
+
     return 0;
 }

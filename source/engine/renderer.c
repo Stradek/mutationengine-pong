@@ -6,11 +6,10 @@
 #include <SDL2/SDL.h>
 
 /*********** Renderer Settings ***********/
-
-static RendererOptionsInternal renderer_options = 
+RendererOptionsInternal renderer_options = 
 {
     .target_fps = 60,
-    .target_frame_time = -1 // set in set_renderer_options
+    .target_frame_time = -1 // set in cpp in set_renderer_options()
 };
 
 void init_renderer_options(void)

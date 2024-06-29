@@ -60,7 +60,7 @@ int mutation_engine_run_loop(void)
             const Uint64 frame_time_end = SDL_GetPerformanceCounter();
 
             const float elapsed_frame_time = (frame_time_end - frame_time_start) / (float)SDL_GetPerformanceFrequency() * SECONDS_TO_MILLISECONDS;
-            const float wait_frame_time = fmax(0, renderer_options.target_frame_time - elapsed_frame_time);
+            const float wait_frame_time = fmax(0.0f, renderer_options.target_frame_time - elapsed_frame_time);
             SDL_Delay(floor(wait_frame_time));
         }
     }

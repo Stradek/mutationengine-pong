@@ -7,7 +7,7 @@ typedef struct
     float target_frame_time;
 } RendererOptionsInternal;
 
-static RendererOptionsInternal renderer_options; 
+extern RendererOptionsInternal renderer_options;
 
 int init_sdl(void);
 int init_renderer(void);

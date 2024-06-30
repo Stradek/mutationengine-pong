@@ -1,10 +1,9 @@
+#include "common/debug.h"
 #include "engine/mutation_engine.h"
-
-#include <stdio.h>
 
 int main(int argc, char **argv)
 {
-    printf("Hello Mutation Engine!\n");
+    GAME_INFO("Hello! It's Pong Game!\n");
 
     if (mutation_engine_init() != 0)
     {

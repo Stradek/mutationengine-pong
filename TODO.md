@@ -5,9 +5,10 @@
 ## TODO
 
 ## IN PROGRESS
-- Add entity component system to the project.
+- Replace printf with new macros
 
 ## DONE
+- Add DEBUG_BREAK, ASSERT, LOG macros to the project
 - Establish coding conventions for the project and refactor project to align.
 - Create "types.h" header
 - Force 60 fps in game loop.

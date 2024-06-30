@@ -1,6 +1,7 @@
 #include "mutation_engine.h"
 
 #include "common/types.h"
+#include "common/debug.h"
 #include "renderer.h"
 #include "utils.h"
 
@@ -11,6 +12,7 @@
 
 int mutation_engine_init(void) 
 {
+    ENGINE_INFO("Hello! It's Mutation Engine!\n");
     if (init_renderer() != 0)
     {
         return 1;

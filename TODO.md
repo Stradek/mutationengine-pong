@@ -1,8 +1,11 @@
 # Tasks
 
+## TODO AFTER BREAK
+
 ## TODO
 
 ## IN PROGRESS
+
 - Establish coding conventions for the project and refactor project to align.
 
 ## DONE

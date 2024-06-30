@@ -3,6 +3,7 @@ setlocal
 
 rem Clean CMake files
 rmdir /s /q CMakeFiles
+rmdir /s /q build
 del CMakeCache.txt
 del cmake_install.cmake
 

@@ -5,7 +5,6 @@
 ## TODO
 
 ## IN PROGRESS
-- Replace printf with new macros
 
 ## DONE
 - Add DEBUG_BREAK, ASSERT, LOG macros to the project

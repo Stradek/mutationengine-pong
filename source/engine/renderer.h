@@ -2,16 +2,23 @@
 
 #include "common/types.h"
 
+/************************* Renderer Settings *************************/
+
 typedef struct 
 {
-    uint target_fps;
-    float target_frame_time;
-} RendererOptionsInternal;
+    float targetFrameTime;
+    uint8 targetFPS;
+} RendererOptions;
 
-extern RendererOptionsInternal renderer_options;
+extern RendererOptions rendererOptions;
+
+/************************* SDL *************************/
 
 int init_sdl(void);
+int close_sdl(void);
+
+/************************* Renderer *************************/
+
 int init_renderer(void);
 int render_frame(void);
-int close_sdl(void);
 int close_renderer(void);

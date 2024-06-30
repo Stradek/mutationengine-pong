@@ -4,8 +4,9 @@
 #include "renderer.h"
 #include "utils.h"
 
-#include <math.h>
 #include <SDL2/SDL.h>
+
+#include <math.h>
 #include <stdio.h>
 
 int mutation_engine_init(void) 
@@ -21,32 +22,32 @@ int mutation_engine_init(void)
 int mutation_engine_run_loop(void) 
 {
     bool running = true;
-    uint8 frames_per_second_counter = 0;
-    uint64 last_performance_logging_time = SDL_GetPerformanceCounter();
+    size_t fpsCounter = 0;
+    uint64 lastPerformanceLoggingTime = SDL_GetPerformanceCounter();
 
-    while(running)
+    while (running)
     {
-        const uint64 frame_time_start = SDL_GetPerformanceCounter();
+        const uint64 frameTimeStart = SDL_GetPerformanceCounter();
         {
-            const float last_performance_logging_delta_time = (frame_time_start - last_performance_logging_time) / (float)SDL_GetPerformanceFrequency() * SECONDS_TO_MILLISECONDS;
-            if(last_performance_logging_delta_time >= 1000)
+            const float lastPerformanceLoggingDeltaTime = (frameTimeStart - lastPerformanceLoggingTime) / (float) SDL_GetPerformanceFrequency() * SECONDS_TO_MILLISECONDS;
+            if (lastPerformanceLoggingDeltaTime >= 1000)
             {
-                printf("FPS: %u\n", frames_per_second_counter);
-                last_performance_logging_time = SDL_GetPerformanceCounter();
-                frames_per_second_counter = 0;
+                printf("FPS: %zd\n", fpsCounter);
+                lastPerformanceLoggingTime = SDL_GetPerformanceCounter();
+                fpsCounter = 0;
             }
         }
 
         SDL_Event event;
-        while(SDL_PollEvent(&event))
+        while (SDL_PollEvent(&event))
         {
-            if(event.type == SDL_QUIT)
+            if (event.type == SDL_QUIT)
             {
                 running = false;
             }
-            else if(event.type == SDL_KEYDOWN)
+            else if (event.type == SDL_KEYDOWN)
             {
-                if(event.key.keysym.sym == SDLK_ESCAPE)
+                if (event.key.keysym.sym == SDLK_ESCAPE)
                 {
                     running = false;
                 }
@@ -56,12 +57,12 @@ int mutation_engine_run_loop(void)
         render_frame();
 
         {
-            ++frames_per_second_counter;
-            const uint64 frame_time_end = SDL_GetPerformanceCounter();
+            ++fpsCounter;
+            const uint64 frameTimeEnd = SDL_GetPerformanceCounter();
 
-            const float elapsed_frame_time = (frame_time_end - frame_time_start) / (float)SDL_GetPerformanceFrequency() * SECONDS_TO_MILLISECONDS;
-            const float wait_frame_time = fmax(0.0f, renderer_options.target_frame_time - elapsed_frame_time);
-            SDL_Delay(floor(wait_frame_time));
+            const float elapsedFrameTime = (frameTimeEnd - frameTimeStart) / (float) SDL_GetPerformanceFrequency() * SECONDS_TO_MILLISECONDS;
+            const float timeUntilTargetFrameTime = fmax(0.0f, rendererOptions.targetFrameTime - elapsedFrameTime);
+            SDL_Delay(floor(timeUntilTargetFrameTime));
         }
     }
     return 0;
@@ -69,7 +70,7 @@ int mutation_engine_run_loop(void)
 
 int mutation_engine_close(void)
 {
-    if(close_renderer() != 0)
+    if (close_renderer() != 0)
     {
         return 1;
     }

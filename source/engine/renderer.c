@@ -1,23 +1,24 @@
 #include "renderer.h"
 
-#include "SDL2/SDL_log.h"
 #include "utils.h"
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_log.h>
 
-/*********** Renderer Settings ***********/
-RendererOptionsInternal renderer_options = 
+/************************* Renderer Settings *************************/
+
+RendererOptions rendererOptions = 
 {
-    .target_fps = 60,
-    .target_frame_time = -1 // set in cpp in set_renderer_options()
+    .targetFrameTime = -1, // set in cpp in set_renderer_options()
+    .targetFPS = 60
 };
 
 void init_renderer_options(void)
 {
-    renderer_options.target_frame_time = (float) SECONDS_TO_MILLISECONDS / renderer_options.target_fps;
+    rendererOptions.targetFrameTime = (float) SECONDS_TO_MILLISECONDS / rendererOptions.targetFPS;
 }
 
-/*********** SDL ***********/
+/************************* SDL *************************/
 
 SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL;
@@ -65,7 +66,7 @@ int close_sdl(void)
     return 0;
 }
 
-/*********** Renderer ***********/
+/************************* Renderer *************************/
 
 int init_renderer(void)
 {

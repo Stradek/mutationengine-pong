@@ -34,7 +34,7 @@ int mutation_engine_run_loop(void)
             const float lastPerformanceLoggingDeltaTime = (frameTimeStart - lastPerformanceLoggingTime) / (float) SDL_GetPerformanceFrequency() * SECONDS_TO_MILLISECONDS;
             if (lastPerformanceLoggingDeltaTime >= 1000)
             {
-                printf("FPS: %zd\n", fpsCounter);
+                ENGINE_DEBUG("FPS: %zd\n", fpsCounter);
                 lastPerformanceLoggingTime = SDL_GetPerformanceCounter();
                 fpsCounter = 0;
             }

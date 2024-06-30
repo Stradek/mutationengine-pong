@@ -5,10 +5,10 @@
 ## TODO
 
 ## IN PROGRESS
-
-- Establish coding conventions for the project and refactor project to align.
+- Add entity component system to the project.
 
 ## DONE
+- Establish coding conventions for the project and refactor project to align.
 - Create "types.h" header
 - Force 60 fps in game loop.
 - Figure out how to structure entity component system.

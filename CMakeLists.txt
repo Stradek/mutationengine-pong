@@ -44,6 +44,7 @@ project(MutationEngine-Pong)
 
 # MutationEngine-Pong
 set(SOURCES 
+    ${CMAKE_SOURCE_DIR}/source/common/debug.c
     ${CMAKE_SOURCE_DIR}/source/game/main.c
     ${CMAKE_SOURCE_DIR}/source/engine/mutation_engine.c
     ${CMAKE_SOURCE_DIR}/source/engine/renderer.c

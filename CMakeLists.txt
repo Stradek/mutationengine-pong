@@ -19,14 +19,18 @@ endif()
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Set the output directories
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
 
 # Specify compiler flags for different build types
 set(CMAKE_C_FLAGS_DEBUG "-g")
 set(CMAKE_C_FLAGS_RELEASE "-O3")
 set(CMAKE_C_FLAGS_RELWITHDEBINFO "-O2 -g")
+
+# Define DEBUG and RELEASE macros
+set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -DDEBUG")
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -DRELEASE")
 
 # Enable all warnings
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -pedantic")
@@ -47,6 +51,17 @@ set(SOURCES
 )
 
 add_executable(MutationEngine-Pong ${SOURCES})
+
+# Set the output name
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(EXECUTABLE_NAME "${PROJECT_NAME}-d")
+else()
+    set(EXECUTABLE_NAME "${PROJECT_NAME}")
+endif()
+
+set_target_properties(MutationEngine-Pong PROPERTIES
+    OUTPUT_NAME "${EXECUTABLE_NAME}"
+)
 
 target_include_directories(MutationEngine-Pong PRIVATE
     ${CMAKE_SOURCE_DIR}/source

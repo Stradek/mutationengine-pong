@@ -42,6 +42,7 @@ if exist %PROJECT_EXECUTABLE_PATH% (
     call :handle_error
     goto :EOF
 )
+pause
 
 endlocal
 exit /b %errorlevel%
